@@ -1,57 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_margin="25dp"
-        android:id="@+id/name"
-        android:layout_height="wrap_content"
-        android:hint="Name" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_margin="25dp"
-        android:id="@+id/email"
-        android:layout_height="wrap_content"
-        android:hint="Email" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_margin="25dp"
-        android:id="@+id/height"
-        android:layout_height="wrap_content"
-        android:hint="Affected Height" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="wrap_content"
-            android:text="use my location"
-            android:onClick="setGetElev"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="25dp"
+            android:id="@+id/name"
             android:layout_height="wrap_content"
-            android:id="@+id/location_button"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:text="get from map"
+            android:hint="Name" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="25dp"
+            android:id="@+id/email"
             android:layout_height="wrap_content"
-            android:id="@+id/from_map"/>
-    </LinearLayout>
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/selected_location"/>
+            android:hint="Email" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="25dp"
+            android:id="@+id/height"
+            android:layout_height="wrap_content"
+            android:hint="Affected Height" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="25dp"
+            android:id="@+id/area"
+            android:layout_height="wrap_content"
+            android:hint="Affected area" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:text="use my location"
+                android:layout_height="wrap_content"
+                android:id="@+id/location_button"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:text="get from map"
+                android:onClick="setGetElev"
+                android:layout_height="wrap_content"
+                android:id="@+id/from_map"/>
+        </LinearLayout>
 
-    
-    
-    
-    
-</LinearLayout>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/selected_location"/>
+    </LinearLayout>
+
+</ScrollView>
