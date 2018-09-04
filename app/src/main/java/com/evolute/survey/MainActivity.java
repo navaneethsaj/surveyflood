@@ -13,6 +13,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     Button getloc,getElev;
     Double lat,lan;
     String st="";
+    AlertDialog alertDialog;
+    AlertDialog.Builder builder;
     LocationManager locationManager;
     TextView locationText;
     LocationListener locationListener;
@@ -95,6 +98,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
     public void getLocation(){
         try {
+            builder = new AlertDialog.Builder(getApplicationContext());
+            builder.setTitle("Updating");
+            builder.setMessage("Getting new Location ..");
+            alertDialog = builder.create();
+            if(!alertDialog.isShowing()){
+                alertDialog.show();
+            }
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, this);
         }
@@ -129,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             super.onPostExecute(s);
             if (s != null)
                 locationText.setText(s);
+
             else
                 Toast.makeText(getApplicationContext(),"Timed out low net speed",Toast.LENGTH_SHORT).show();
 
@@ -136,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
     @Override
     public void onLocationChanged(Location location) {
+        if(alertDialog.isShowing())
+            alertDialog.dismiss();
         locationText.setText("Latitude: " + location.getLatitude() + "\n Longitude: " + location.getLongitude());
         lat = location.getLatitude();
         lan = location.getLongitude();
