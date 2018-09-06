@@ -14,52 +14,100 @@
             android:layout_width="match_parent"
             android:layout_margin="25dp"
             android:id="@+id/name"
+            android:inputType="textPersonName"
             android:layout_height="wrap_content"
             android:hint="Name" />
         <EditText
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_margin="25dp"
             android:id="@+id/email"
             android:layout_height="wrap_content"
             android:hint="Email" />
         <EditText
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_margin="25dp"
             android:id="@+id/height"
             android:layout_height="wrap_content"
             android:hint="Affected Height" />
         <EditText
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_margin="25dp"
-            android:id="@+id/area"
+            android:id="@+id/pincode"
             android:layout_height="wrap_content"
-            android:hint="Affected area" />
+            android:hint="Pincode" />
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content">
             <Button
-                android:layout_width="wrap_content"
-                android:text="use my location"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:text="Use GPS"
                 android:layout_height="wrap_content"
                 android:id="@+id/location_button"/>
             <Button
-                android:layout_width="wrap_content"
-                android:text="get from map"
-                android:onClick="setGetElev"
-                android:layout_height="wrap_content"
-                android:id="@+id/from_map"/>
+                android:layout_weight="1"
+                android:id="@+id/nextbutton"
+                android:text="Next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
-
-        <TextView
-            android:layout_marginTop="10dp"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:textColor="@color/colorPrimary"
-            android:id="@+id/selected_location"/>
+            android:layout_height="wrap_content">
+           <LinearLayout
+               android:id="@+id/locationlayout"
+               android:orientation="horizontal"
+               android:gravity="center"
+               android:visibility="gone"
+               android:layout_marginLeft="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_gravity="top"
+                   android:layout_width="wrap_content"
+                   android:textColor="@color/textcolor"
+                   android:layout_height="wrap_content"
+                   android:text="Location"/>
+               <TextView
+                   android:paddingLeft="20dp"
+                   android:layout_gravity="top"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/textcolor"
+                   android:id="@+id/selected_location"/>
+           </LinearLayout>
+            <LinearLayout
+                android:id="@+id/altitudelayout"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="top"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/textcolor"
+                    android:layout_height="wrap_content"
+                    android:text="Altitude  "/>
+                <TextView
+                    android:layout_gravity="top"
+                    android:textColor="@color/textcolor"
+                    android:paddingLeft="20dp"
+                    android:id="@+id/altitudetextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
